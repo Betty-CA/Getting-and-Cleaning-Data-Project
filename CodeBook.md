@@ -159,5 +159,5 @@ activity         | Activity name
 3. add activeties and subjects columns to the new merged data set      
 4. aggregated the merged data set by activeties and subjects to the tidy data set      
 5. add activety names column to the tidy data set      
-6. export the tidy data set to file "tidydata.txt" with row.name=FALSE      
+6. export the tidy data set to file "tidydata.txt" with **row.name=FALSE**      
 
