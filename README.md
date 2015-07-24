@@ -1,74 +1,82 @@
-# Getting-and-Cleaning-Data-Project
+# files in the branch
+There are three files in the branch, "run_analysis.R", "tidydata.txt" and readme.md. 
+"run_analysis.R" is the srcipt for the project.
+"tidydata.txt" is the output of the script.
 
-## 1 Merges the training and the test sets to create one data set.
-## read the files
-## generate the path
+## how to run the scripte
+Before run the script, the zip file including the raw data "getdata-projectfiles-UCI HAR Dataset.zip" should be download and unzipped to the same folder of the file "run_analysis.R"
+
+open "run_analysis.R" then run it
+
+a file named "tidydata.txt" will be created at the same working folder.
+
+## how all the scripts work
+
+### First generate the path and read all the files in the unzipped folder
 path<-file.path(getwd(),"UCI HAR Dataset")
 
-## read activiies 
+#### read activiies 
 activities<-read.table(file.path(path,"activity_labels.txt"))
-## rename the colume 
+#### rename the colume 
 names(activities)<- c("ActivetiesID","ActivetiesName")
 
-## read features 
+#### read features 
 features<-read.table(file.path(path,"features.txt"))
-## rename the colume 
+#### rename the colume 
 names(features)<- c("featuresID","featuresName")
 
-## read train dataset
+### read train dataset
 trainPath <- file.path(path,"train")
-## read subjects and name the column
+#### read subjects and name the column
 subjectTrain <- read.table(file.path(trainPath,"subject_train.txt"))
 names(subjectTrain)[1] <- "subject"
-## read the train data
+#### read the train data
 trainSet <- read.table(file.path(trainPath,"X_train.txt"))
-## read activeties lables
+#### read activeties lables
 trainLables <- read.table(file.path(trainPath,"y_train.txt"))
-## name the lables column
+#### name the lables column
 names(trainLables) <- c("lablesID")
-## combine the subject and activeties lables with the train set
+#### combine the subject and activeties lables with the train set
 trainSet <- cbind(subjectTrain, trainLables,trainSet)
 
 
-## read test dataset
+### read test dataset
 testPath <- file.path(path,"test")
-## read subjects and name the column
+#### read subjects and name the column
 subjectTest <- read.table(file.path(testPath,"subject_test.txt"))
 names(subjectTest)[1] <- "subject"
-## read the test data
+#### read the test data
 testSet <- read.table(file.path(testPath,"X_test.txt"))
-## read activeties lables
+#### read activeties lables
 testLables <- read.table(file.path(testPath,"y_test.txt"))
-## name the lables column
+#### name the lables column
 names(testLables) <- c("lablesID")
-## combine the lables with the train set
+#### combine the lables with the train set
 testSet <- cbind(subjectTest,testLables,testSet)
 
 
 
-## 2 Merges the training and the test sets to create one data set
-## Extracts mean(mean()) and standard deviation(std()) 
+### 2 Merges the training and the test sets to create one data set
+#### Extracts mean(mean()) and standard deviation(std()) 
 meanIDs <- features[grep("mean()",features$featuresName),]
 stdIDs <- features[grep("std()",features$featuresName),]
 extractsCols <- rbind(meanIDs,stdIDs)
 
-## merge into one data set
+#### merge into one data set
 mergeSet <- rbind( trainSet, testSet )[c("subject","lablesID", paste("V",sep="",extractsCols$featuresID))]
 
-## 3 Uses descriptive activity names to name the activities in the data set
+### 3 Uses descriptive activity names to name the activities in the data set
 mergeSet <- merge(mergeSet,activities,by.x="lablesID",by.y = "ActivetiesID")
 
-# 4 Appropriately labels the data set with descriptive variable names.
+### 4 Appropriately labels the data set with descriptive variable names.
 names(mergeSet)[3:81] <- as.character(extractsCols$featuresName)
 
-## 5 From the data set in step 4, 
-## creates a second, independent tidy data set 
-## with the average of each variable for each activity and each subject.
+### 5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 tidyData <- aggregate(3:81~lablesID+subject,data=mergeSet,mean)
 tidyData <- tidyData[order(tidyData$subject,tidyData$lablesID),1:81]
 tidyData <- merge(tidyData,activities,by.x="lablesID",by.y = "ActivetiesID")
 
-## export the tidy data to file "tidydata.txt"
+#### export the tidy data to file "tidydata.txt"
 write.table(tidyData, file = "tidydata.txt", row.name=FALSE )
 
 
