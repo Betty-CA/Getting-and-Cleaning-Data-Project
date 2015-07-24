@@ -1,22 +1,22 @@
 ## variables in the R scripts
 
-"activities"  |  data.frame  |  with two columns "ActivetiesID" and "ActivetiesName", store the 6 types of activety
+"activities"    data.frame    with two columns "ActivetiesID" and "ActivetiesName", store the 6 types of activety
 
-"extractsCols" |   data.frame |   with two columns "featuresID" and "featuresName", store the name of  features with mean and std 
+"extractsCols"    data.frame    with two columns "featuresID" and "featuresName", store the name of  features with mean and std 
 
-"features" |   data.frame  |  with two columns "featuresID" and "featuresName", store the 561 features
+"features"    data.frame    with two columns "featuresID" and "featuresName", store the 561 features
 
-"meanIDs" |  data.frame |   subset of "features" including all variables with mean value    
+"meanIDs"   data.frame    subset of "features" including all variables with mean value    
 
-"mergeSet" |   data.frame  |  the data set merged from the train set and test set
+"mergeSet"    data.frame    the data set merged from the train set and test set
 
-"path"  |  Character vector |   the work directory
-"stdIDs"  |  data.frame  |  subset of "features" including all variables with standard deviation value 
-"subjectTest"   data.frame    subjects list of test set
-"subjectTrain"    data.frame    subjects list of train set
-"testLables"    data.frame    activeties lables of test set
-"testPath"    Character vector    the foler with test data
-"testSet"   data.frame    data set of test
+"path"    Character vector    the work directory      
+"stdIDs"    data.frame    subset of "features" including all variables with standard deviation value           
+"subjectTest"   data.frame    subjects list of test set             
+"subjectTrain"    data.frame    subjects list of train set                              
+"testLables"    data.frame    activeties lables of test set                                          
+"testPath"    Character vector    the foler with test data                                          
+"testSet"   data.frame    data set of test                         
 "tidyData"    data.frame    the tidy data set with the average of each variable for each activity and each subject.
 "trainLables"    data.frame    activeties lables of train set
 "trainPath"   Character vector    the foler with train data
