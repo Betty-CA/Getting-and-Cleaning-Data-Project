@@ -65,8 +65,11 @@ trainSet  | data.frame  |  data set of train
 
 #### snapshot of data
 'data.frame':	180 obs. of  82 variables:          
-variable name   |    snapshot of data   |
-----------------|---------------------------   |
+
+Variable name    | Description
+-----------------|------------
+subject          | ID the subject who performed the activity for each window sample. Its range is from 1 to 30.
+activity         | Activity name
  $ lablesID                       | int  1 1 1 1 1 1 1 1 1 1 ...      |
  $ subject                        | int  1 10 8 17 15 4 2 11 9 18 ...  |   
  $ tBodyAcc-mean()-X              | num  0.277 0.279 0.275 0.272 0.274 ...     |
