@@ -1,8 +1,8 @@
 ## variables in the R scripts
-
-"activities"    data.frame    with two columns "ActivetiesID" and "ActivetiesName", store the 6 types of activety
-
-"extractsCols"    data.frame    with two columns "featuresID" and "featuresName", store the name of  features with mean and std 
+ var name    |  type      |  description
+-------------|------------|------------------
+activities   | data.frame |   with two columns "ActivetiesID" and "ActivetiesName", store the 6 types of activety
+extractsCols | data.frame |   with two columns "featuresID" and "featuresName", store the name of  features with mean and std 
 
 "features"    data.frame    with two columns "featuresID" and "featuresName", store the 561 features
 
