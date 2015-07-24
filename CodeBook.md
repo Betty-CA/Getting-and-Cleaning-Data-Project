@@ -64,8 +64,8 @@ trainSet  | data.frame  |  data set of train
 [81] "fBodyBodyGyroJerkMag-std()"      "ActivetiesName"   
 
 #### snapshot of data
-'data.frame':	180 obs. of  82 variables:|
-----------------------------------------|---------
+'data.frame':	180 obs. of  82 variables:|           
+----------------------------------------|-----------------------------------------------------------------------
  $ lablesID                       | int  1 1 1 1 1 1 1 1 1 1 ...
  $ subject                        | int  1 10 8 17 15 4 2 11 9 18 ...
  $ tBodyAcc-mean()-X              | num  0.277 0.279 0.275 0.272 0.274 ...
