@@ -64,7 +64,8 @@ trainSet  | data.frame  |  data set of train
 [81] "fBodyBodyGyroJerkMag-std()"      "ActivetiesName"   
 
 #### snapshot of data
-'data.frame':	180 obs. of  82 variables:|           
+'data.frame':	180 obs. of  82 variables:
+variable name   |    snapshot of data
 ----------------------------------------|-----------------------------------------------------------------------
  $ lablesID                       | int  1 1 1 1 1 1 1 1 1 1 ...
  $ subject                        | int  1 10 8 17 15 4 2 11 9 18 ...
